@@ -1,3 +1,3 @@
 FROM python:3-alpine
 
-ENV DEVELOPER="Marcos Cano & Daniel Hernández"
+ENV DEV_PROGRA="Marcos Cano & Daniel Hernández"
