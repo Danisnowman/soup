@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from Portal import Portal
+import os
 
 class SOUP():
     portal = None
@@ -30,5 +31,10 @@ class SOUP():
             program = self.programNumber.get(int(eachInt))
             self.exec(program)
 
+    def printDev(self):
+        print(os.environ["DEV_PROGRA"])
+        print("==========================")
+
     def start(self, args):
+        self.printDev()
         self.getProgramNumber(args)
