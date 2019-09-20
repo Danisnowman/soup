@@ -27,7 +27,7 @@ class Log:
     def logIfThirty(self, lines):
         if self.getCheckIfThirty(lines):
             self.logErr(lines)
-            return f"Output exceeds 30 lines, logging into {self.logPath}"
+            return f"Output exceeds 30 lines, logging into {self.logPath}\n--------------------------"
         else:
             return f"{lines}\n --------------------------"
 

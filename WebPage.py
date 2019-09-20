@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from Log import Log
 import requests,sys,csv,json
+import re
 
 class WebPage:
     url = None
