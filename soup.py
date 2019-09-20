@@ -1,24 +1,18 @@
-#!/usr/bin/env python3
-from bs4 import BeautifulSoup
-import requests,sys,csv,json
+import argparse
+from soupClass import *
+# Create the parser
+parser = argparse.ArgumentParser(description='Web Scrapping')
+parser.add_argument(
+                    'integers', 
+                     metavar='Program Number(s)', 
+                    type=list, 
+                    # nargs='+',
+                    help="The program(s) you want to run. They range from 1 to 3."
+                    )
 
-url="http://ufm.edu/Portal"
-# Make a GET request to fetch the raw HTML content
-try:
-    html_content = requests.get(url).text
-except:
-    print(f"unable to get {url}")
-    sys.exit(1)
+args = parser.parse_args()
+# print(type(args.integers))
+# print(args.integers)
 
-# Parse the html content, this is the Magic ;)
-soup = BeautifulSoup(html_content, "html.parser")
-
-# print if needed, gets too noisy
-#print(soup.prettify())
-
-print(soup.title)
-print(soup.title.string)
-
-for div in soup.find_all("div"):
-    print(div)
-    print("--------------------------")
+sp = SOUP()
+sp.start(args)
