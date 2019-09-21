@@ -30,6 +30,10 @@ class WebPage:
         for href in self.soup.find_all(href=True):
             self.hrefs += f"{href}\n"
         return self.hrefs   
+
+    def countAllA(self):
+        count = len(self.soup.find_all('a'))
+        return count
     
 
     def getSOUP(self):

@@ -34,9 +34,6 @@ class Portal(WebPage):
             imagesStr += f"{image}\n"
         return imagesStr
 
-    def countAllA(self):
-        count = len(self.soup.find_all('a'))
-        return count
 
     def run(self):
         self.start()
