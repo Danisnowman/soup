@@ -31,7 +31,7 @@ class Portal(WebPage):
         imagesStr = ""
         # imagesStr += [f"{image}\n" for image in images]
         for image in images:
-            imagesStr += f"{image}\n"
+            imagesStr += f" - {image}\n"
         return imagesStr
 
 

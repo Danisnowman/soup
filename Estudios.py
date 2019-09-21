@@ -11,20 +11,23 @@ class Estudios(WebPage):
         return href
 
     def displayItems(self):
-        topMenuItems = self.soup.find("div", {"id": "topmenu"})
+        topMenuItems = ""
+        for items in self.soup.find_all("div", {"id": "topmenu"}):
+            for li in items.find_all("li"):
+                topMenuItems += f" - {li.text}\n"
         return topMenuItems
 
     def getAllEstudios(self, className):
         estudios = ""
         for estudio in self.soup.find_all("div", {"class": className }):
-            estudios += f"{estudio.text}\n" 
+            estudios += f" - {estudio.text}\n" 
         return estudios
 
     def getAllLi(self, className, insideParam):
         estudios = ""
         for estudio in self.soup.find_all("div", {"class": className }):
             for li in estudio.find_all(insideParam):
-                estudios += f"{li.text}\n" 
+                estudios += f" - {li.text}\n" 
         return estudios
 
 
@@ -35,7 +38,7 @@ class Estudios(WebPage):
         estudiosHref = f"{self.navigate()}"
         print(f"Navigate to /Estudios: {self.log.logIfThirty(estudiosHref)}")
 
-        topMenuItem = self.displayItems().text
+        topMenuItem = self.displayItems()
         print(f"Top Menu Items: {self.log.logIfThirty(topMenuItem)}")
 
         estudios = self.getAllEstudios("estudios")

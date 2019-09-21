@@ -28,7 +28,7 @@ class WebPage:
     
     def getHref(self):
         for href in self.soup.find_all(href=True):
-            self.hrefs += f"{href}\n"
+            self.hrefs += f" - {href}\n"
         return self.hrefs   
 
     def countTag(self, param):
@@ -40,7 +40,7 @@ class WebPage:
             estudios = ""
             for estudio in self.soup.find_all("div", {"class": className }):
                 for link in estudio.find_all("a"):
-                    estudios += f"{link.get('href')}\n" 
+                    estudios += f" - {link.get('href')}\n" 
             return estudios
     
 
