@@ -307,8 +307,13 @@ In order to start your project:
 - [x] everytime you complete an "item" make sure to mark it as done [x]
 
 ## Usage Dockerfile
+In order to use Docker, run first:
 ```bash
-Put your Docker build/run/etc commands here
+docker build --rm -f "Dockerfile" -t soup:prod .
+```
+And then:
+```bash
+run -it soup:prod    
 ```
 
 ---
