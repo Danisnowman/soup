@@ -1,7 +1,7 @@
 import argparse
 from soupClass import *
 # Create the parser
-defaultOption = [1,2,3,4]
+defaultOption = None
 parser = argparse.ArgumentParser(description='Web Scrapping')
 parser.add_argument(
                     'integers', 
@@ -17,7 +17,4 @@ args = parser.parse_args()
 # print(args.integers)
 
 sp = SOUP()
-if args.integers is None:
-    sp.start(defaultOption)
-else:
-    sp.start(args)
+sp.start(args)

@@ -9,9 +9,12 @@ class WebPage:
     html_content = None
     hrefs = ""
     log = None
+    programName = ""
+
 
     def start(self):
-        print("==========================")
+        print("\n\n==========================")
+        print(self.programName)
         self.parse()
 
     def parse(self):

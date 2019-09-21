@@ -5,6 +5,8 @@ class Portal(WebPage):
     def __init__(self, url):
         self.url = url
         self.log = Log("Portal","./logs/Portal.log")
+        self.programName = "1. Portal"
+
 
     def getAddr(self):
         addr = self.soup.find("a", {"href": "#myModal"})

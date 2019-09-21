@@ -5,6 +5,7 @@ class Estudios(WebPage):
     def __init__(self, url):
         self.url = url
         self.log = Log("Estudios","./logs/Estudios.log")
+        self.programName = "2. Estudios"
 
     def navigate(self):
         href =  self.soup.find('div',{'class': "menu-key"})

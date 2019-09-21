@@ -4,6 +4,7 @@ class CS(WebPage):
     def __init__(self, url):
         self.url = url
         self.log = Log("CS","./logs/CS.log")
+        self.programName = "3. CS"
 
     def getFceLogo(self,className):
         image = self.soup.find("img", {"class": className })
