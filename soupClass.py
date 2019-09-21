@@ -2,17 +2,20 @@
 from Portal import Portal
 from Estudios import Estudios
 from CS import CS
+from Directorio import Directorio
 import os
 
 class SOUP():
     portal = None
     estudios = None
     cs = None
+    directorio = None
 
     def __init__(self):
         self.portal = Portal("http://ufm.edu/Portal")
         self.estudios = Estudios("http://ufm.edu/Estudios")
         self.cs = CS("https://fce.ufm.edu/carrera/cs/")
+        self.directorio = Directorio("https://www.ufm.edu/Directorio")
 
     def programOne(self):
         self.portal.run()
@@ -24,7 +27,7 @@ class SOUP():
         self.cs.run()
 
     def programFour(self):
-        pass
+        self.directorio.run()
 
     def exec(self, Program):
         Program(self)
