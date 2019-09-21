@@ -11,6 +11,7 @@ class WebPage:
     log = None
 
     def start(self):
+        print("==========================")
         self.parse()
 
     def parse(self):

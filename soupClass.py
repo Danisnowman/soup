@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 from Portal import Portal
+from Estudios import Estudios
 import os
 
 class SOUP():
     portal = None
+    estudios = None
 
     def __init__(self):
         self.portal = Portal("http://ufm.edu/Portal")
+        self.estudios = Estudios("http://ufm.edu/Estudios")
 
     def programOne(self):
         self.portal.run()
 
     def programTwo(self):
-        print(f"Running {self.programTwo}")
+        self.estudios.run()
 
     def programThree(self):
         print(f"Running {self.programTwo}")
@@ -33,7 +36,6 @@ class SOUP():
 
     def printDev(self):
         print(os.environ["DEV_PROGRA"])
-        print("==========================")
 
     def start(self, args):
         self.printDev()
