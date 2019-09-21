@@ -27,7 +27,7 @@ class Portal(WebPage):
         return href
     
     def getAllImgHref(self):
-        images = [image['src'] for image in self.soup.find_all('img')]
+        images = [image.get('src') for image in self.soup.find_all('img')]
         imagesStr = ""
         # imagesStr += [f"{image}\n" for image in images]
         for image in images:
@@ -66,5 +66,5 @@ class Portal(WebPage):
         images = f"{self.getAllImgHref()}\n"
         print(f"GET the href of all images and print it: {self.log.logIfThirty(images)} ")
 
-        countA = self.countAllA()
-        print(f"Count all <a>'s and print it: {countA} ")
+        countA = self.countTag("a")
+        print(f"Count all <a> and print it: {countA} ")

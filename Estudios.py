@@ -27,12 +27,6 @@ class Estudios(WebPage):
                 estudios += f"{li.text}\n" 
         return estudios
 
-    def getAllSocialMedia(self, className):
-            estudios = ""
-            for estudio in self.soup.find_all("div", {"class": className }):
-                for link in estudio.find_all("a"):
-                    estudios += f"{link.get('href')}\n" 
-            return estudios
 
 
     def run(self):
@@ -50,9 +44,9 @@ class Estudios(WebPage):
         leftBarItems = self.getAllLi("leftbar","li")
         print(f"Estudios: {self.log.logIfThirty(leftBarItems)}")
 
-        socialMedia = self.getAllSocialMedia("social pull-right")
+        socialMedia = self.getLinkFromHref("social pull-right")
         print(f"Social Media: {self.log.logIfThirty(socialMedia)}")
 
-        countA = self.countAllA()
+        countA = self.countTag("a")
         print(f"Count all <a>'s and print it: {countA} ")
 

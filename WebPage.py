@@ -31,9 +31,17 @@ class WebPage:
             self.hrefs += f"{href}\n"
         return self.hrefs   
 
-    def countAllA(self):
-        count = len(self.soup.find_all('a'))
+    def countTag(self, param):
+        count = len(self.soup.find_all(param))
         return count
+
+
+    def getLinkFromHref(self, className):
+            estudios = ""
+            for estudio in self.soup.find_all("div", {"class": className }):
+                for link in estudio.find_all("a"):
+                    estudios += f"{link.get('href')}\n" 
+            return estudios
     
 
     def getSOUP(self):
