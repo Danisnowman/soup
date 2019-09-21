@@ -3,7 +3,7 @@ from Portal import Portal
 from Estudios import Estudios
 from CS import CS
 from Directorio import Directorio
-import os
+import os, shutil
 
 class SOUP():
     portal = None
@@ -48,8 +48,8 @@ class SOUP():
         print(os.environ["DEV_PROGRA"])
 
     def start(self, args):
-        print(args)
         if args.integers is None:
             args.integers = [1,2,3,4]
         self.printDev()
         self.getProgramNumber(args)
+        
