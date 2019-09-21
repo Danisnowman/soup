@@ -23,11 +23,11 @@ class Portal(WebPage):
         return menuItems
 
     def getHrefMIUButton(self, attr):
-        href = [eachHref.get("href") for eachHref in self.soup.findAll('a', attrs={'href': re.compile(attr)})]
+        href = [eachHref.get("href") for eachHref in self.soup.find_all('a', attrs={'href': re.compile(attr)})]
         return href
     
     def getAllImgHref(self):
-        images = [image['src'] for image in self.soup.findAll('img')]
+        images = [image['src'] for image in self.soup.find_all('img')]
         imagesStr = ""
         # imagesStr += [f"{image}\n" for image in images]
         for image in images:
@@ -35,7 +35,7 @@ class Portal(WebPage):
         return imagesStr
 
     def countAllA(self):
-        count = len(self.soup.findAll('a'))
+        count = len(self.soup.find_all('a'))
         return count
 
     def run(self):
@@ -71,6 +71,3 @@ class Portal(WebPage):
 
         countA = self.countAllA()
         print(f"Count all <a>'s and print it: {countA} ")
-
-
-    
