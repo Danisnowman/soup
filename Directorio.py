@@ -1,4 +1,5 @@
 from WebPage import *
+from Address import Address
 
 class Directorio(WebPage):
     def __init__(self, url):
@@ -28,6 +29,13 @@ class Directorio(WebPage):
             if eachItem[0] in vowels:
                 count += 1
         return count
+    
+    def getRawData(self):
+        allAdresses = []
+        for soupObj in self.soup.find_all(class_="tabla ancho100"):
+            rawData = soupObj.find_all('td') 
+        return rawData
+
 
     def run(self):
         self.start()
@@ -39,3 +47,7 @@ class Directorio(WebPage):
 
         countMails = self.countVowelsInList(mailList)
         print(f"Count of mails: {countMails}")
+
+        # data = self.countVowelsInList(self.getRawData())
+        # print(f"Count of mails: {countMails}")
+        self.getRawData()
